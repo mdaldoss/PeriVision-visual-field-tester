@@ -30,9 +30,14 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: `npx vite --port ${PORT} --strictPort`,
+    // --host is pinned to the IPv4 loopback on purpose: Vite otherwise binds
+    // to "localhost", which on CI runners resolves to ::1, and the poll below
+    // on 127.0.0.1 then never succeeds.
+    command: `npx vite --port ${PORT} --strictPort --host 127.0.0.1`,
     url: `http://127.0.0.1:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
+    stdout: "pipe",
+    stderr: "pipe",
   },
 });
