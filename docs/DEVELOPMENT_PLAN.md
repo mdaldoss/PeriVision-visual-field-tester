@@ -2,9 +2,35 @@
 
 **Goal:** a web app that runs a visual field test (perimetry) on an ordinary laptop — screen + keyboard + webcam — and produces, per eye, a printable field map comparable in layout and usefulness to the output of a clinical automated perimeter (e.g. a Humphrey Field Analyzer printout).
 
-- **Status:** planning (this document is the blueprint; no code exists yet)
+- **Status:** implemented — M0–M7 are built and tested; M8 (human validation) is the remaining work. See [Implementation status](#implementation-status).
 - **Repository:** `mdaldoss/PeriVision-visual-field-tester`
 - **Date:** 2026-07-27
+
+## Implementation status
+
+The app in `src/` implements this plan. Where reality forced a change, the plan text below is left as written and the deviation is recorded here.
+
+| Milestone | State | Notes |
+|---|---|---|
+| M0 Foundation | ✅ | Vite/React/TS, ESLint, Vitest, Playwright, CI + Pages workflows |
+| M1 Core engine | ✅ | `src/core/engine.ts` — state machine, scheduler, seeded RNG, replayable event log |
+| M2 Setup & calibration | ✅ | Bank-card screen calibration, computed distance, live webcam distance gauge |
+| M3 Reliability core | ✅ | Response windows, false-trigger classes, FP/FN catch trials, blind-spot mapping, adaptive ISI, pause/resume, practice |
+| M4 Gaze monitoring | ✅ | MediaPipe worker, 5-point calibration, deviation/blink veto + requeue, eye-cover check, drift pause |
+| M5 Strategies & grids | ✅ | Adaptive grid generator, suprathreshold screening, 4-2 staircase, pseudo-dB LUT + ordered dithering |
+| M6 Results & reports | ✅ | Numeric + interpolated grayscale maps, reliability block, PNG/PDF/JSON export, IndexedDB history |
+| M7 Debug mode & polish | ✅ | Overlay, event console, per-event sounds, simulate controls, en/it locales |
+| M8 Validation & beta | ⬜ | Needs real users and real hardware; nothing here can be faked in software |
+
+**Deviations from the plan as written:**
+
+1. **24-2 coverage floor lowered from 60% to 50%.** A 13″ 16:9 panel keeps only ~59% of the pattern at 30 cm, so a 60% floor blocked the default test on very common hardware. What survives is still a genuine central field test, and the report always prints the extent actually covered (§3.1 already anticipated adaptive grids).
+2. **Catch-trial scheduling is deficit-driven, not a flat probability.** A flat 6% over a ~55-trial screening run yields two or three catch trials, from which a "false positive rate" is meaningless. The engine now targets a minimum count (8 FP / 6 FN / 6 blind-spot) and raises the rate when it is behind, so short runs still produce a usable reliability index.
+3. **Staircase seeding from neighbours is clamped to ±6 dB of the age-expected value.** Unclamped, one deep defect seeded its healthy neighbours far too low and the defect visibly smeared outwards across the map.
+4. **False-positive rate is the worse of two measures** — the clinical catch-trial rate and the stray-press rate (presses too early, or with no stimulus in the window) — because a user who presses on a rhythm can miss every catch trial and still be unreliable.
+5. **Grayscale ramp is clamped at 34 dB**, not the display's theoretical ceiling (~45 dB), or a perfectly normal field prints as mid-gray.
+6. **Eye-cover mismatch blocks with an override** rather than hard-blocking: a false positive from the camera would otherwise strand the user.
+7. **ZEST-style Bayesian strategy** remains a fast-follow, as the plan scheduled it.
 
 > ⚠️ **Medical disclaimer (drives many decisions below).** PeriVision is a screening / self-monitoring / educational tool. A consumer laptop cannot be photometrically calibrated like a certified perimeter, so results are *indicative*, not diagnostic. The app must state this prominently and never claim to diagnose glaucoma or any disease. See [§12 Privacy, safety & regulatory](#12-privacy-safety--regulatory).
 
