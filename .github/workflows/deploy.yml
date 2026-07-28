@@ -30,7 +30,13 @@ jobs:
       - run: npm run build
         env:
           PERIVISION_BASE: /PeriVision-visual-field-tester/
+      # enablement: true makes this workflow create the Pages site itself
+      # (build type "workflow") on first run, instead of failing with
+      # "Get Pages site failed... Not Found" until someone manually flips
+      # Settings -> Pages -> Source -> GitHub Actions.
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
