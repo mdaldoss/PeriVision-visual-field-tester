@@ -1,0 +1,247 @@
+import type { TranslationKey } from "./en";
+
+export const it: Record<TranslationKey, string> = {
+  "app.name": "PeriVision",
+  "app.tagline": "Esame del campo visivo sul tuo portatile",
+  "app.notMedicalShort": "Strumento di screening - non è un dispositivo medico",
+
+  "common.continue": "Continua",
+  "common.back": "Indietro",
+  "common.cancel": "Annulla",
+  "common.skip": "Salta",
+  "common.start": "Inizia",
+  "common.done": "Fatto",
+  "common.retry": "Riprova",
+  "common.close": "Chiudi",
+  "common.eyeOD": "occhio destro",
+  "common.eyeOS": "occhio sinistro",
+  "common.eyeODShort": "OD",
+  "common.eyeOSShort": "OS",
+  "common.minutes": "min",
+  "common.of": "di",
+  "common.yes": "Sì",
+  "common.no": "No",
+
+  "welcome.title": "Misura il tuo campo visivo a casa",
+  "welcome.intro":
+    "PeriVision misura quanto bene percepisci le luci ai bordi della vista mentre guardi dritto davanti a te: la stessa idea dell'esame perimetrico che si fa dall'oculista. Si esamina un occhio alla volta e si preme la barra spaziatrice ogni volta che si nota una luce.",
+  "welcome.disclaimerTitle": "Leggi prima questo",
+  "welcome.disclaimer":
+    "Questo è uno strumento di screening e automonitoraggio, non un dispositivo medico, e non può diagnosticare nulla. Lo schermo di un portatile non può essere calibrato come un'apparecchiatura clinica: i risultati sono solo indicativi e servono soprattutto a confrontarli con i tuoi esami precedenti fatti sullo stesso computer. Qualsiasi cosa ti preoccupi va portata all'attenzione di un oculista.",
+  "welcome.needTitle": "Cosa serve",
+  "welcome.need1": "Una stanza silenziosa e poco illuminata",
+  "welcome.need2": "Qualcosa per coprire un occhio: il palmo della mano o una benda",
+  "welcome.need3": "Da 10 a 20 minuti, secondo il test scelto",
+  "welcome.need4": "Occhiali o lenti a contatto, se li usi normalmente a distanza da schermo",
+  "welcome.begin": "Inizia",
+  "welcome.history": "Risultati precedenti",
+
+  "env.title": "Prepara schermo e ambiente",
+  "env.intro": "Due minuti qui fanno la differenza tra un risultato utile e del rumore.",
+  "env.item1": "Abbassa le luci. Nessuna lampada o finestra che si rifletta sullo schermo.",
+  "env.item2": "Porta la luminosità dello schermo al massimo e lasciala lì.",
+  "env.item3":
+    "Disattiva modalità notte, luminosità automatica e filtri luce blu: cambiano la luminanza durante l'esame.",
+  "env.item4": "Chiudi le altre app e silenzia le notifiche: un popup a metà esame rovina le presentazioni.",
+  "env.item5": "Collega l'alimentatore, così il risparmio energetico non abbassa la luminosità.",
+  "env.checksTitle": "Controllo del browser",
+  "env.checkFullscreen": "Schermo intero",
+  "env.checkCamera": "Fotocamera",
+  "env.checkOk": "supportato",
+  "env.checkMissing": "non disponibile",
+  "env.cameraOptional":
+    "Il test funziona anche senza fotocamera, usando i controlli di fissazione sulla macchia cieca.",
+
+  "cal.title": "Calibra le dimensioni dello schermo",
+  "cal.intro":
+    "Tutto in questo esame si misura in gradi di angolo visivo, quindi l'app deve sapere quanto è grande davvero il tuo schermo.",
+  "cal.cardMethod": "Confronta una carta",
+  "cal.cardHelp":
+    "Appoggia una carta di credito o bancomat sullo schermo e trascina il cursore finché il contorno coincide esattamente.",
+  "cal.diagonalMethod": "Inserisci la dimensione",
+  "cal.diagonalHelp": "Scrivi la diagonale del tuo schermo in pollici.",
+  "cal.diagonalLabel": "Diagonale schermo (pollici)",
+  "cal.resultTitle": "Il tuo schermo",
+  "cal.resultLine": "{diagonal}\" di diagonale - {width} x {height} mm - {ppmm} px/mm",
+  "cal.implausible":
+    "Non sembra uno schermo da portatile tipico. Controlla la misura prima di continuare.",
+  "cal.advanced": "Avanzate: luminosità del display",
+  "cal.nitsLabel": "Luminosità massima (nit)",
+  "cal.nitsHelp":
+    "Modificala solo se conosci le specifiche del pannello. Determina lo stimolo più luminoso possibile, valore riportato nel referto.",
+  "cal.gammaLabel": "Gamma del display",
+
+  "camera.title": "Configurazione fotocamera",
+  "camera.intro":
+    "La fotocamera controlla che tu continui a guardare il centro e che sia coperto l'occhio giusto. Le presentazioni in cui lo sguardo si è spostato vengono scartate e ripetute: è questo che rende affidabile il risultato.",
+  "camera.privacyTitle": "Il video non lascia mai questo dispositivo",
+  "camera.privacy":
+    "I fotogrammi sono analizzati sul tuo computer e subito scartati. Niente viene registrato, salvato o caricato. Il modello del volto viene scaricato una volta sola, come qualsiasi altra parte di una pagina web.",
+  "camera.enable": "Attiva la fotocamera",
+  "camera.without": "Continua senza fotocamera",
+  "camera.requesting": "In attesa del permesso per la fotocamera...",
+  "camera.loading": "Caricamento del modello del volto...",
+  "camera.ready": "Fotocamera pronta ({delegate})",
+  "camera.failed": "Fotocamera non disponibile: {error}",
+  "camera.fallbackNote":
+    "Senza fotocamera la fissazione viene comunque controllata proiettando stimoli nella macchia cieca, ma lo sguardo che si sposta è più difficile da cogliere.",
+
+  "setup.title": "Scegli l'esame",
+  "setup.protocol": "Tipo di esame",
+  "setup.protocolScreening": "Screening rapido",
+  "setup.protocolScreeningDesc":
+    "Uno o due lampi per punto. Classifica ogni punto come normale, debole o cieco.",
+  "setup.protocolThreshold": "Soglia completa",
+  "setup.protocolThresholdDesc":
+    "Misura quanto debole può essere la luce che vedi in ogni punto. Più lento, molto più dettagliato.",
+  "setup.protocolCentral": "Centrale (maculare)",
+  "setup.protocolCentralDesc": "Griglia fine di 2° sui 10° centrali. Entra comodamente in ogni schermo.",
+  "setup.estimate": "Circa {minutes} min per occhio",
+  "setup.eyeOrder": "Ordine degli occhi",
+  "setup.eyeOrderODFirst": "Prima il destro",
+  "setup.eyeOrderOSFirst": "Prima il sinistro",
+  "setup.age": "La tua età",
+  "setup.ageHelp":
+    "Serve solo a scegliere livelli di luminosità iniziali sensati. La sensibilità cala lentamente con l'età.",
+  "setup.stimulus": "Colore dello stimolo",
+  "setup.stimulusWhite": "Bianco",
+  "setup.stimulusRed": "Rosso",
+  "setup.fixation": "Punto di fissazione",
+  "setup.fixationDot": "Punto",
+  "setup.fixationCross": "Croce",
+  "setup.geometryTitle": "Cosa copre il tuo schermo",
+  "setup.geometryLine":
+    "Siediti a {distance}. Campo esaminato: {x}° in larghezza per {y}° in altezza, {points} punti.",
+  "setup.coverageWarn":
+    "Il tuo schermo copre il {coverage}% dello schema standard {grid} a una distanza confortevole. I punti esterni mancanti sono esclusi dal referto.",
+  "setup.coverageFail":
+    "Il tuo schermo è troppo piccolo per questo schema a una distanza confortevole. Scegli invece l'esame centrale.",
+  "setup.debugToggle": "Modalità debug",
+  "setup.debugHelp":
+    "Mostra una console degli eventi in tempo reale e riproduce un suono per falsi trigger e perdite di fissazione.",
+  "setup.feedbackToggle": "Clic a ogni risposta accettata",
+  "setup.feedbackHelp":
+    "Disattivato di default: sentire quali pressioni contano rivela quando la luce c'era davvero.",
+  "setup.startTest": "Avvia l'esame",
+
+  "cover.title": "Copri l'{eye}",
+  "cover.instruction":
+    "Copri l'{eye} con il palmo o una benda e tienilo coperto finché questo occhio non ha finito. Non premere sul bulbo oculare. Tieni l'{openEye} aperto e rilassato.",
+  "cover.testing": "Stai per esaminare l'{openEye}.",
+  "cover.checking": "Verifica con la fotocamera...",
+  "cover.ok": "Sembra corretto: il tuo {openEye} è aperto.",
+  "cover.mismatch":
+    "La fotocamera rileva che l'occhio aperto è il {detected}. Devi coprire invece l'{eye}.",
+  "cover.noFace": "La fotocamera non vede il tuo viso. Mettiti centrato davanti allo schermo.",
+  "cover.override": "La fotocamera sbaglia - continua comunque",
+  "cover.ready": "Sono coperto, continua",
+
+  "distance.title": "Mettiti alla distanza giusta",
+  "distance.instruction":
+    "I tuoi occhi devono stare a {distance} dallo schermo. È questa distanza che trasforma le posizioni sullo schermo in gradi di campo visivo, quindi conta davvero.",
+  "distance.noCamera":
+    "Misurala una volta con un metro o un righello, poi resta fermo. Per molti è poco più della lunghezza del braccio dalla tastiera.",
+  "distance.live": "Stima della fotocamera: {distance}",
+  "distance.moveCloser": "Avvicinati",
+  "distance.moveBack": "Allontanati",
+  "distance.hold": "Resta così",
+  "distance.locked": "Bene. Mantieni questa distanza per tutto l'esame.",
+  "distance.calibrateHint": "L'hai misurata? Inserisci la distanza reale per correggere la stima.",
+  "distance.actualLabel": "Distanza reale (cm)",
+  "distance.apply": "Correggi la stima",
+  "distance.confirm": "Sono alla distanza giusta",
+
+  "gazeCal.title": "Insegna alla fotocamera dove stai guardando",
+  "gazeCal.intro": "Guarda dritto ogni punto che appare e resta fermo. Servono circa quindici secondi.",
+  "gazeCal.start": "Avvia la calibrazione",
+  "gazeCal.lookAt": "Guarda il punto",
+  "gazeCal.progress": "Punto {current} di {total}",
+  "gazeCal.good": "Calibrato. Errore tipico {rms}°.",
+  "gazeCal.poor":
+    "La calibrazione non è abbastanza affidabile ({rms}°). L'esame si può fare lo stesso, ma verranno rilevate solo deviazioni ampie dello sguardo.",
+  "gazeCal.skip": "Salta la calibrazione",
+
+  "practice.title": "Prova pratica",
+  "practice.instruction":
+    "Fissa il segno al centro dello schermo. Intorno appariranno delle luci, alcune facili, altre appena percettibili. Premi la BARRA SPAZIATRICE ogni volta che pensi di averne vista una. Non spostare mai gli occhi per cercarle.",
+  "practice.hint": "Nella prova pratica tutte le luci sono facili da vedere.",
+  "practice.start": "Avvia la prova",
+  "practice.done": "Prova finita - {seen} su {total} viste",
+  "practice.repeat": "Ripeti la prova",
+  "practice.continue": "Avvia l'esame vero",
+
+  "test.getReady": "Preparati",
+  "test.countdown": "Si comincia tra {seconds}...",
+  "test.instructionShort": "Fissa il centro. Premi SPAZIO quando vedi una luce.",
+  "test.pausedTitle": "In pausa",
+  "test.pauseFaceLost": "La fotocamera non vede il tuo viso.",
+  "test.pauseEyeMismatch": "Sembra coperto l'occhio sbagliato.",
+  "test.pauseDistance": "Ti sei spostato. Torna a {distance} dallo schermo.",
+  "test.pauseManual": "In pausa. Prenditi un momento.",
+  "test.resume": "Premi SPAZIO per continuare",
+  "test.abortConfirm": "Interrompere l'esame e scartare questo occhio?",
+  "test.keysHint": "P mette in pausa - Esc interrompe",
+  "test.fpWarning": "Premi solo quando vedi davvero una luce.",
+  "test.eyeProgress": "{eye} - {percent}%",
+
+  "between.title": "Primo occhio completato",
+  "between.body":
+    "Riposa un momento e sbatti le palpebre normalmente. Quando sei pronto, cambia l'occhio coperto e prosegui con l'altro.",
+  "between.continue": "Continua con l'{eye}",
+
+  "results.title": "I tuoi risultati",
+  "results.subtitle": "{date} - {protocol}",
+  "results.verdictReliable": "Questo esame ha superato i controlli di affidabilità.",
+  "results.verdictLow":
+    "Questo esame non ha superato i controlli di affidabilità: la mappa potrebbe non rispecchiare il tuo campo reale. I motivi sono indicati su ogni referto.",
+  "results.reasonFalsePositives": "troppe pressioni quando non veniva mostrato nulla",
+  "results.reasonFalseNegatives": "luci evidenti non segnalate",
+  "results.reasonFixationLosses": "sguardo spostato dal centro troppo spesso",
+  "results.exportPng": "Salva PNG",
+  "results.exportPdf": "Salva PDF (entrambi gli occhi)",
+  "results.exportJson": "Salva dati grezzi (JSON)",
+  "results.again": "Ripeti l'esame",
+  "results.home": "Home",
+  "results.whatNextTitle": "Cosa dice e cosa non dice questo risultato",
+  "results.whatNext":
+    "Un risultato pulito non esclude una malattia oculare, e un risultato strano è spesso solo un esame difficile fatto in condizioni non ideali. Il segnale utile è il cambiamento delle tue mappe nel tempo, sullo stesso portatile. Porta qualsiasi cosa inattesa a un oculista invece di agire da solo.",
+  "results.saved": "Salvato su questo dispositivo.",
+
+  "history.title": "Risultati precedenti",
+  "history.empty": "Nessun esame salvato su questo dispositivo.",
+  "history.open": "Apri",
+  "history.delete": "Elimina",
+  "history.exportAll": "Esporta tutto",
+  "history.deleteAll": "Elimina tutti i miei dati",
+  "history.deleteAllConfirm": "Eliminare definitivamente ogni esame salvato in questo browser?",
+  "history.row": "{date} - {protocol} - {eyes} occhio/i",
+
+  "debug.title": "Debug",
+  "debug.events": "Registro eventi",
+  "debug.sounds": "Suoni",
+  "debug.state": "Motore",
+  "debug.gaze": "Sguardo",
+  "debug.clear": "Pulisci",
+  "debug.copy": "Copia il registro",
+  "debug.copied": "Copiato",
+  "debug.simulatePress": "Simula pressione",
+  "debug.simulateGazeLoss": "Simula perdita di sguardo",
+  "debug.phase": "Fase",
+  "debug.trial": "Presentazione",
+  "debug.queue": "Avanzamento",
+  "debug.fps": "FPS",
+  "debug.deviation": "Deviazione",
+  "debug.distance": "Distanza",
+  "debug.openEye": "Occhio aperto",
+  "debug.quality": "Errore sguardo",
+  "debug.seed": "Seed",
+  "debug.none": "nessuno",
+  "debug.eventFalseTrigger": "FALSO TRIGGER",
+  "debug.eventGazeLost": "SGUARDO PERSO",
+  "debug.eventInvalidated": "PRESENTAZIONE SCARTATA",
+  "debug.eventEyeMismatch": "OCCHIO SBAGLIATO",
+  "debug.watermark": "Modalità debug - i risultati sono marcati come non validi",
+
+  "error.noDevice": "Calibra lo schermo prima di iniziare un esame.",
+  "error.generic": "Qualcosa è andato storto: {message}",
+};
